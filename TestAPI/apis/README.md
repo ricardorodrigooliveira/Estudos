@@ -21,9 +21,9 @@ Vou usar SCSS como style e basta aguardar a instalação.
 
 
 ### Comandos git
-echo "# Estudos" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git remote add origin https://github.com/ricardorodrigooliveira/Estudos.git
-git push -u origin master
+echo "# Estudos" >> README.md  
+git init  
+git add README.md  
+git commit -m "first commit"  
+git remote add origin https://github.com/ricardorodrigooliveira/Estudos.git  
+git push -u origin master  
