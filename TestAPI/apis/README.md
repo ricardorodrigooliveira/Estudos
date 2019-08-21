@@ -15,6 +15,15 @@ ng new nome_do_projeto
 
 Vou usar SCSS como style e basta aguardar a instalação.
 
+criação de um novo diretório chamado components  
+criação de um novo componente chamado home e movido para o diretório components  
+
+Modido o script HTML do component app/app.components.html para components/home.components.html  
+
+Criação da rota para iniciar a home, lembrando que a opção de rotas foi selecionada na criação do projeto.
+
+
+
 
 
 
