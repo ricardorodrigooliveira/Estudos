@@ -1,3 +1,4 @@
+const router = require('./router.js');
 const http = require('http');
 const morgan = require('morgan');
 const express = require('express');
@@ -12,9 +13,7 @@ function initialize(){
 
         app.use(morgan('combined'));
 
-        app.get('/', (req, res) => {
-            res.end('hello Wolrd!');
-        });
+        app.use('/api', router);
 
     httpServer.listen(webServerConfig.port)
         .on('listening', () => {
@@ -27,6 +26,8 @@ function initialize(){
         });
     });
 }
+
+module.exports.initialize = initialize;
 
 function close() {
     return new Promise((resolve, reject) => {
@@ -42,4 +43,3 @@ function close() {
 }
 
 module.exports.close = close;
-module.exports.initialize = initialize;
