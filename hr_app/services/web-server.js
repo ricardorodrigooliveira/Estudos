@@ -15,6 +15,10 @@ function initialize(){
 
         app.use('/api', router);
 
+        app.use(express.json({
+            reviver: reviveJson
+        }));
+
     httpServer.listen(webServerConfig.port)
         .on('listening', () => {
             console.log(`Web server listening on localhost:${webServerConfig.port}`);
@@ -43,3 +47,13 @@ function close() {
 }
 
 module.exports.close = close;
+
+const iso8601RegExp = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
+function reviveJson(key, value) {
+    // revive ISO 8601 date strings to instances of Date
+    if (typeof value === 'string' && iso8601RegExp.test(value)) {
+      return new Date(value);
+    } else {
+      return value;
+    }
+  }
